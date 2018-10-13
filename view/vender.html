@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Vender Produto</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/javascript.js"></script>
+</head>
+<body>
+    <div>
+
+
+        <form method="post" id="busca_produto" action="../controller/incluir.php">
+            Venda atual: <input type="number" readonly id="codigo_documento" value="" name="codigo_documento" title="Contador de venda atual">
+            <br/>
+            Lista de produtos:<br/>
+
+            <textarea id="lista_produto" readonly name="lista_produtos" title="Lista de produtos" style="width: 400px; height: 400px">
+
+            </textarea>
+            Produto: <input type="text" name="cod_produto" title="Código do produto">
+
+            <input type="submit" id="incluir" value="Ok">
+            <!--<button id="incluir" onclick="return incluir()">Ok</button> !-->
+        </form>
+
+
+        <br/>
+
+        <input type="submit" value="Cancelar">
+        <input type="submit" value="Confirmar">
+
+
+
+    </div>
+</body>
+</html>
