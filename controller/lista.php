@@ -1,27 +1,49 @@
 
 <?php
 
+    require '../model/Produto.php';
+    require '../model/Documento.php';
+
+    ini_set('display_errors', 1);
+
+
     $mysqli = new mysqli("localhost","senior","W3i5GWGWTWRn8mul", "seniortsic");
 
 
-    $query = "SELECT "
+    if (isset($_POST["codigo_documento"]) && !empty($_POST["codigo_documento"])){
+        $iddocumento = (int) $_POST["codigo_documento"];
 
-    $result = mysqli_query($con,"SELECT * FROM Persons");
+        $query = "SELECT p.idproduto, p.descricao, p.preco
+              FROM seniortsic.produto p
+              INNER JOIN seniortsic.item i ON p.idproduto = i.idproduto
+              INNER JOIN seniortsic.documento d ON i.iddocumento  = d.iddocumento 
+              WHERE d.iddocumento = $iddocumento;";
 
-echo "<table border='1'>
-<tr>
-<th>Firstname</th>
-<th>Lastname</th>
-</tr>";
+        $result = mysqli_query($mysqli,$query);
 
-while($row = mysqli_fetch_array($result))
-{
-    echo "<tr>";
-    echo "<td>" . $row['FirstName'] . "</td>";
-    echo "<td>" . $row['LastName'] . "</td>";
-    echo "</tr>";
-}
-echo "</table>";
+        echo "<table>
+        <tr>
+        <th>Código</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        </tr>";
 
-mysqli_close($con);
+        while($row = mysqli_fetch_array($result))
+        {
+            echo "<tr>";
+            echo "<td>" . $row['idproduto'] . "</td>";
+            echo "<td>" . $row['descricao'] . "</td>";
+            echo "<td>" . $row['preco'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+    else{
+        echo "Lista vazia";
+    }
+
+
+
+mysqli_close($mysqli);
+
 

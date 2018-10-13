@@ -1,8 +1,8 @@
 
 
 $(document).ready(function(){
-    $("#busca_produto").submit(function(){
-
+    $("#busca_produto").submit(function(e){
+        e.preventDefault();
         var result = $(this).serialize();
         $.ajax({
             url: "../controller/incluir.php",
@@ -10,12 +10,28 @@ $(document).ready(function(){
             dataType: "json",
             data: result,
             success: function(result){
-                $("#codigo_documento").val(result);
+                $("#codigo_documento").val(result).focus();
+
+
+
             }});
+
+        var table = $(this).serialize();
+        $.ajax({
+            url: "../controller/lista.php",
+            type: "POST",
+            dataType: "html",
+            data: table,
+            success: function(table){
+                $("#lista_produto").html(table).update();
+
+            }});
+
 
         return false;
 
-    })
+    });
+
 });
 
 /*

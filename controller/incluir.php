@@ -1,7 +1,7 @@
 <?php
     header('Content-type: text/json');
-    require_once '../model/Produto.php';
-    require_once '../model/Documento.php';
+    require '../model/Produto.php';
+    require '../model/Documento.php';
 
 
     ini_set('display_errors', 1);
@@ -58,4 +58,4 @@
         // DISPLAY ALERT OF UNEXISTENT PRODUCT
     }
 
-
+mysqli_close($mysqli);
