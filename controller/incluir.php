@@ -25,9 +25,9 @@
 
         // IF DOCUMENT CODE IS SET, A NEW DOCUMENT IS NOT NECESSARY
         if (isset($_POST["codigo_documento"]) && !empty($_POST["codigo_documento"])){
-            $cod_documento =  $_POST["codigo_documento"];
+            $cod_documento =  (int) $_POST["codigo_documento"];
 
-            $query = "INSERT INTO item (iddocumento, idproduto) VALUES ((int)$cod_documento, $id)";
+            $query = "INSERT INTO item (iddocumento, idproduto) VALUES ($cod_documento, $id)";
             $result = mysqli_query($mysqli, $query);
 
         } else {
