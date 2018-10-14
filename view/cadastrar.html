@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Produto</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/javascript.js"></script>
 </head>
 <body>
+
     <fieldset> <legend>Cadastrar Produto</legend>
-        <form method="post" action="../controller/cadastrar.php">
-            Código: <input type="text" name="codigo_produto" title=""> <br/>
-            Descrição: <input type="text" name="descricao_produto" title=""> <br/>
-            Preço: <input type="text" name="preco_produto" title=""> <br/>
+
+        <form method="post" id="cadastra_produto" action="../controller/cadastrar.php">
+            Código: <input type="number" id="id_produto" name="codigo_produto" required title=""> <br/>
+            Descrição: <input type="text" id="descricao_produto" name="descricao_produto" required title=""> <br/>
+            Preço: <input type="text" id="preco_produto" name="preco_produto" required title=""> <br/>
             <input type="submit" value="Cadastrar">
+            <button id="cancelar_cadastrar">Cancelar</button>
         </form>
-        <form action="../index.html">
-            <input type="submit" value="Cancelar">
-        </form>
-
-
 
     </fieldset>
+
 </body>
 </html>

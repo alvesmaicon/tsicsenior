@@ -7,33 +7,25 @@
     <script src="../js/javascript.js"></script>
 </head>
 <body>
-    <div>
 
+    <fieldset> <legend>Efetuar venda</legend>
 
         <form method="post" id="busca_produto" action="../controller/incluir.php">
-            Venda atual: <input type="number" readonly id="codigo_documento" value="" name="codigo_documento" title="Contador de venda atual">
-            <br/>
+            Venda atual: <input type="number" readonly id="codigo_documento" value="" name="codigo_documento" title="Contador de venda atual"><br/>
             Lista de produtos:<br/>
 
-
             <div id="lista_produto" style="width: 400px; height: 400px; border: 1px solid grey;">
-
+                <!-- Conteúdo do banco de dados -->
             </div>
 
-            Produto: <input type="text" name="cod_produto" title="Código do produto">
-
-            <input type="submit" id="incluir" value="Ok">
-            <!--<button id="incluir" onclick="return incluir()">Ok</button> !-->
+            Produto: <input type="number"  id="cod_produto" name="cod_produto" required title="Código do produto">
+            <input type="submit" value="Ok">
         </form>
-
-
         <br/>
+        <button id="cancelar_venda" >Cancelar</button>
+        <button id="confirmar_venda">Confirmar</button>
 
-        <input type="submit" value="Cancelar">
-        <input type="submit" value="Confirmar">
+    </fieldset>
 
-
-
-    </div>
 </body>
 </html>

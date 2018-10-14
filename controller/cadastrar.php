@@ -1,4 +1,5 @@
 <?php
+
     require_once '../model/Produto.php';
 
 
@@ -23,7 +24,30 @@
     $stmt->close();
     $mysqli->close();
 
-header("Location: ../index.html");
+
 exit();
+
+
+
+/*
+    header('Content-type: text/json');
+    require '../model/Produto.php';
+    require '../model/Documento.php';
+
+
+    ini_set('display_errors', 1);
+    $mysqli = new mysqli("localhost","senior","W3i5GWGWTWRn8mul", "seniortsic");
+
+    $id = (int)$_POST["codigo_produto"];
+    $descricao = $_POST["descricao_produto"];
+    $preco = $_POST["preco_produto"];
+
+    $query = "INSERT INTO produto (idproduto, descricao) VALUES ($id, $descricao);";
+    $result = mysqli_query($mysqli, $query);
+
+    echo json_encode($result);
+
+    $mysqli->close();
+*/
 
 

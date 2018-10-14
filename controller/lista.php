@@ -19,7 +19,13 @@
               INNER JOIN seniortsic.documento d ON i.iddocumento  = d.iddocumento 
               WHERE d.iddocumento = $iddocumento;";
 
+
         $result = mysqli_query($mysqli,$query);
+
+        $query = "SELECT total FROM documento WHERE documento.iddocumento = $iddocumento;";
+        $preco_total = mysqli_query($mysqli, $query);
+        $preco_total = mysqli_fetch_array($preco_total);
+
 
         echo "<table>
         <tr>
@@ -28,18 +34,27 @@
         <th>Preço</th>
         </tr>";
 
+
+
         while($row = mysqli_fetch_array($result))
         {
             echo "<tr>";
             echo "<td>" . $row['idproduto'] . "</td>";
             echo "<td>" . $row['descricao'] . "</td>";
-            echo "<td>" . $row['preco'] . "</td>";
+            echo "<td>" . 'R$' . number_format($row['preco'], 2, ',', '.') . "</td>";
             echo "</tr>";
         }
+
+
+        echo "<tr>";
+        echo "<td>" . "" . "</td>";
+        echo "<td>" . "<b>Valor total:</b>" . "</td>";
+        echo "<td>" .'R$' . number_format($preco_total['total'], 2, ',', '.') . "</td>";
+        echo "</tr>";
         echo "</table>";
     }
     else{
-        echo "Lista vazia";
+
     }
 
 

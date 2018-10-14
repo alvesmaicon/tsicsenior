@@ -21,8 +21,8 @@ USE `seniortsic` ;
 -- Table `seniortsic`.`documento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `seniortsic`.`documento` (
-  `iddocumento` INT(11) NOT NULL,
-  `total` INT(11) NULL DEFAULT NULL,
+  `iddocumento` INT(11) NOT NULL AUTO_INCREMENT,
+  `total` DOUBLE NULL DEFAULT NULL,
   `confirmado` TINYINT(1) NULL DEFAULT NULL,
   PRIMARY KEY (`iddocumento`))
 ENGINE = InnoDB
@@ -45,18 +45,18 @@ DEFAULT CHARACTER SET = latin1;
 -- Table `seniortsic`.`item`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `seniortsic`.`item` (
-  `produto_idproduto` INT(11) NOT NULL,
-  `documento_iddocumento` INT(11) NOT NULL,
-  PRIMARY KEY (`produto_idproduto`, `documento_iddocumento`),
-  INDEX `fk_item_produto_idx` (`produto_idproduto`) ,
-  INDEX `fk_item_documento_idx` (`documento_iddocumento`),
+  `idproduto` INT(11) NOT NULL,
+  `iddocumento` INT(11) NOT NULL,
+  PRIMARY KEY (`idproduto`, `iddocumento`),
+  INDEX `fk_item_produto_idx` (`idproduto`) ,
+  INDEX `fk_item_documento_idx` (`iddocumento`) ,
   CONSTRAINT `fk_item_produto`
-    FOREIGN KEY (`produto_idproduto`)
+    FOREIGN KEY (`idproduto`)
     REFERENCES `seniortsic`.`produto` (`idproduto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_item_documento1`
-    FOREIGN KEY (`documento_iddocumento`)
+    FOREIGN KEY (`iddocumento`)
     REFERENCES `seniortsic`.`documento` (`iddocumento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
