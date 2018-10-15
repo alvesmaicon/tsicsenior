@@ -6,6 +6,7 @@
 
     ini_set('display_errors', 1);
     $mysqli = new mysqli("localhost","senior","W3i5GWGWTWRn8mul", "seniortsic");
+    mysqli_set_charset($mysqli,"utf8");
 
     $prod = new Produto();
     $id = (int) $_POST["cod_produto"];

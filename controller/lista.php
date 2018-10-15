@@ -8,6 +8,7 @@
 
 
     $mysqli = new mysqli("localhost","senior","W3i5GWGWTWRn8mul", "seniortsic");
+    mysqli_set_charset($mysqli,"utf8");
 
 
     if (isset($_POST["codigo_documento"]) && !empty($_POST["codigo_documento"])){
@@ -26,8 +27,8 @@
         $preco_total = mysqli_query($mysqli, $query);
         $preco_total = mysqli_fetch_array($preco_total);
 
-
-        echo "<table>
+        echo "<div style='height: 300px; overflow: auto; border-bottom: solid 1px #ced4da'>";
+        echo "<table class='col-sm-10' style='margin: 5%;'>
         <tr>
         <th>Código</th>
         <th>Descrição</th>
@@ -46,12 +47,12 @@
         }
 
 
-        echo "<tr>";
-        echo "<td>" . "" . "</td>";
-        echo "<td>" . "<b>Valor total:</b>" . "</td>";
-        echo "<td>" .'R$' . number_format($preco_total['total'], 2, ',', '.') . "</td>";
-        echo "</tr>";
+
         echo "</table>";
+        echo "</div>";
+        echo "<div style='margin-right: 10%' align='right'>";
+        echo "<b>Valor total: </b>R$ " . number_format($preco_total['total'], 2, ',', '.');
+        echo "</div>";
     }
     else{
 

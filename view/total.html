@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <title>Total de vendas</title>
     <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/javascript.js"></script>
+    <script src="../js/javascript.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body onload="onLoadListDocuments()">
 
-    <fieldset> <legend>Total de vendas</legend>
-        <div id="total_vendas" style="width: 400px; height: 400px; border: 1px solid grey;">
-            <!-- conteúdo do banco de dados -->
+
+    <div class="form-row">
+        <div class="col-sm-1 col-md-2 col-lg-4"></div>
+        <div class="col-sm-10 col-md-8 col-lg-4">
+            <div style="padding-top: 20%"></div>
+            <h1>Total de vendas</h1>
+                <div  id="total_vendas" style="height: 400px;">
+                    <!-- conteúdo do banco de dados -->
+                </div>
+            <br/><br/>
+            <button class="btn btn-primary" id="total_voltar" onclick="location.href = '../index.html';">Voltar</button>
         </div>
-    </fieldset>
-
-    <button id="total_voltar" onclick="location.href = '../index.html';">Voltar</button>
-
+        <div class="col-sm-1 col-md-2 col-lg-4"></div>
+    </div>
 </body>
 </html>

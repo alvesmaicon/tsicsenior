@@ -12,8 +12,10 @@
     $prod->setPreco($_POST["preco_produto"]);
 
     $mysqli = new mysqli("localhost","senior","W3i5GWGWTWRn8mul", "seniortsic");
+    mysqli_set_charset($mysqli,"utf8");
 
-    $query = "INSERT INTO produto SET idproduto=?, descricao=?, preco=?";
+
+$query = "INSERT INTO produto SET idproduto=?, descricao=?, preco=?";
 
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query);

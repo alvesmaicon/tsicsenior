@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Sistema Loja</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <div>
-        <form action="view/cadastrar.html">
-            <input type="submit" value="Cadastrar produto">
-        </form>
+    <div class="form-row" >
+        <div class="col-sm-1 col-md-2 col-lg-4"></div>
+        <div class="col-sm-10 col-md-8 col-lg-4" align="center">
+            <div style="padding-top: 30%"></div>
+            <h1>Escolha uma ação</h1>
 
-        <form action="view/vender.html">
-            <input type="submit" value="Vender produto">
-        </form>
 
-        <form action="view/total.html">
-            <input type="submit" value="Total de vendas">
-        </form>
+            <form action="view/cadastrar.html" class="form-group">
+                <input type="submit" value="Cadastrar produto" title="Cadastrar produto" class="btn btn-primary col-sm-12">
+            </form>
+
+
+            <form action="view/vender.html" class="form-group">
+                <input type="submit" value="Vender produto" title="Vender produto" class="btn btn-primary col-sm-12">
+            </form>
+
+            <form action="view/total.html" class="form-group">
+                <input type="submit" value="Total de vendas" title="Total de vendas" class="btn btn-primary col-sm-12">
+            </form>
+        </div>
+        <div class="col-sm-1 col-md-2 col-lg-4"></div>
+
     </div>
 
 

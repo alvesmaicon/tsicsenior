@@ -3,6 +3,7 @@
     ini_set('display_errors', 1);
 
     $mysqli = new mysqli("localhost","senior","W3i5GWGWTWRn8mul", "seniortsic");
+    mysqli_set_charset($mysqli,"utf8");
 
     $query = "SELECT SUM(documento.total) FROM documento WHERE confirmado = 1;";
 
@@ -14,9 +15,15 @@
     $query = "SELECT iddocumento, total FROM documento WHERE confirmado = 1;";
     $result = mysqli_query($mysqli, $query);
 
-    echo "<table>
+    echo "<br/>";
+    echo "<b> Valor total: </b>" .'R$' . number_format($total, 2, ',', '.') . ".";
+    echo "<br/><br/>";
+
+
+    echo "<div class='border border-secondary' style='height: 350px; overflow: auto'>";
+    echo "<table class='col-sm-10' style='margin: auto;'>
         <tr>
-        <th>Documento nº</th>
+        <th>Número documento</th>
         <th>Valor documento</th>
         </tr>";
 
@@ -31,7 +38,8 @@
 
 
     echo "<tr>";
-    echo "<td>" . "Valor total:" . "</td>";
+    echo "<td>" . "<b>Total:</b>" . "</td>";
     echo "<td>" .'R$' . number_format($total, 2, ',', '.') . "</td>";
     echo "</tr>";
     echo "</table>";
+    echo "</div>";
